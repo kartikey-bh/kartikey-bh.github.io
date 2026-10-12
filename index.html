@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kartikey Bhardwaj</title>
+<meta name="description" content="I work on how machines learn: evals, benchmarks and RL environments for AI at Abundant. Someday, I want to build a school in the Himalayas.">
+<meta name="author" content="Kartikey Bhardwaj">
+<link rel="canonical" href="https://kartikey-bh.github.io/">
+
+<meta property="og:type" content="profile">
+<meta property="profile:first_name" content="Kartikey">
+<meta property="profile:last_name" content="Bhardwaj">
+<meta property="og:title" content="Kartikey Bhardwaj">
+<meta property="og:description" content="I work on how machines learn. Someday, I want to work on how children learn.">
+<meta property="og:url" content="https://kartikey-bh.github.io/">
+<meta property="og:image" content="https://kartikey-bh.github.io/photos/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A person standing alone on a ridge at twilight, above a sea of clouds">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#f7f3ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15130f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+
+<style>
+  :root {
+    color-scheme: light dark;
+    --paper: #f7f3ec;
+    --card: #efe8dc;
+    --ink: #24211d;
+    --accent: #9c4221;
+    --accent-hover: #7a3318;
+    --line: #ddd2c1;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #15130f;
+      --card: #1f1c17;
+      --ink: #ebe5d9;
+      --accent: #f0a46b;
+      --accent-hover: #f6c49c;
+      --line: #3a342b;
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "EB Garamond", Garamond, "Iowan Old Style", Georgia, serif;
+    font-size: 19px;
+    line-height: 1.6;
+    font-kerning: normal;
+  }
+  .page { max-width: 680px; margin: 0 auto; padding: 24px 20px 64px; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+  a:hover { color: var(--accent-hover); }
+  img { display: block; max-width: 100%; height: auto; }
+  p { margin: 0 0 1.1em; text-wrap: pretty; }
+
+  /* top bar */
+  .top {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+    padding-bottom: 14px; border-bottom: 1px solid var(--line);
+  }
+  .name { margin: 0; font-size: 1.9rem; font-weight: 400; line-height: 1.2; }
+
+  /* intro */
+  .lede { margin: 1.7rem 0 1.3rem; font-size: 1.35rem; line-height: 1.35; font-style: italic; text-wrap: balance; }
+
+  /* section labels */
+  .label {
+    margin: 2.6rem 0 0.9rem; font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);
+  }
+
+  /* figures and quotes */
+  figure { margin: 1.6rem 0; }
+  figcaption { margin-top: 0.5rem; font-size: 0.85rem; font-style: italic; }
+  .art img { width: 100%; border-radius: 2px; }
+  blockquote { margin: 1.6rem 0; padding-left: 1.1rem; border-left: 2px solid var(--accent); }
+  blockquote p { margin: 0 0 0.35rem; font-style: italic; }
+  blockquote footer { font-size: 0.85rem; }
+
+  /* invitation */
+  .invite {
+    margin: 2rem 0 0.5rem; padding: 1.3rem 1.25rem 1.1rem;
+    background: var(--card); border: 1px solid var(--line); border-radius: 6px;
+  }
+  .invite h3 { margin: 0 0 0.5rem; font-size: 1.25rem; font-weight: 500; }
+  .invite form { display: grid; gap: 0.75rem; margin-top: 0.9rem; }
+  .field label { display: block; margin-bottom: 0.25rem; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .field input, .field textarea {
+    width: 100%; padding: 0.55rem 0.7rem; font: inherit; font-size: 1rem; color: var(--ink);
+    background: var(--paper); border: 1px solid var(--line); border-radius: 4px;
+  }
+  .field textarea { min-height: 5.5rem; line-height: 1.45; resize: vertical; }
+  .invite button {
+    justify-self: start; padding: 0.55rem 1.3rem; font: inherit; font-size: 1rem; font-weight: 500;
+    color: var(--paper); background: var(--accent); border: 0; border-radius: 4px; cursor: pointer;
+  }
+  .invite button:hover { background: var(--accent-hover); }
+  .field input:focus-visible, .field textarea:focus-visible, .invite button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .fine { margin: 0.8rem 0 0; font-size: 0.85rem; font-style: italic; }
+  .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .notice { display: none; margin: 0.9rem 0 0; padding: 0.6rem 0.8rem; border-left: 3px solid var(--accent); background: var(--paper); }
+  .notice:target { display: block; }
+  #thanks:target ~ form, #thanks:target ~ .fine { display: none; }
+
+  /* gallery */
+  .gallery { columns: 2; column-gap: 12px; margin: 1.4rem 0 0; }
+  .gallery figure { margin: 0 0 12px; break-inside: avoid; }
+  .gallery img { width: 100%; border-radius: 2px; }
+  .gallery figcaption { margin-top: 0.3rem; font-size: 0.8rem; }
+
+  /* work and education dropdown */
+  .work { margin: 3rem 0 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .work summary {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 0.9rem;
+    padding: 1.1rem 0; list-style: none; cursor: pointer;
+  }
+  .work summary::-webkit-details-marker { display: none; }
+  .work summary .label { margin: 0; }
+  .work summary .hint { font-size: 0.95rem; font-style: italic; }
+  .work summary::after { content: "+"; margin-left: auto; font-size: 1.3rem; line-height: 1; color: var(--accent); }
+  .work[open] summary::after { content: "\2212"; }
+  .work summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .timeline { margin: 0.4rem 0 1.4rem; }
+  .timeline dt { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .timeline dd { margin: 0.1rem 0 1.1rem; }
+
+  /* closing and footer */
+  .closing { margin-top: 3rem; }
+  .foot { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--line); font-size: 0.9rem; }
+  .foot p { margin: 0 0 0.4rem; }
+
+  @media (min-width: 560px) {
+    .invite form { grid-template-columns: 1fr 1fr; align-items: end; }
+    .field-wide, .invite button { grid-column: 1 / -1; }
+  }
+  @media (min-width: 640px) {
+    body { font-size: 21px; }
+    .page { padding-top: 40px; }
+    .name { font-size: 2.3rem; }
+    .lede { font-size: 1.6rem; }
+    .gallery { columns: 3; }
+    .timeline { display: grid; grid-template-columns: 8.5rem 1fr; column-gap: 1.2rem; }
+    .timeline dt { padding-top: 0.3rem; }
+    .timeline dd { margin: 0 0 1.1rem; }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Kartikey Bhardwaj",
+  "url": "https://kartikey-bh.github.io/",
+  "image": "https://kartikey-bh.github.io/photos/tea.jpg",
+  "birthPlace": "Delhi, India",
+  "worksFor": { "@type": "Organization", "name": "Abundant", "url": "https://www.abundant.ai/" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Delhi Technological University" },
+  "sameAs": ["https://www.linkedin.com/in/kartikey-bhardwaj-6a9bb8218/"]
+}
+</script>
+</head>
+
+<body>
+<div class="page">
+
+  <header class="top">
+    <h1 class="name">Hi, I’m Kartikey.</h1>
+    <nav aria-label="Elsewhere"><a href="https://www.linkedin.com/in/kartikey-bhardwaj-6a9bb8218/">LinkedIn</a></nav>
+  </header>
+
+  <main>
+    <section aria-label="Who I am">
+      <p class="lede">I work on how machines learn. Someday, I want to work on how children learn.</p>
+
+      <p>I was born in Delhi. For as long as I can remember, I’ve wondered <a href="https://stephenmitchellbooks.com/translations-adaptations/bhagavad-gita/">why we are here</a>, and what really separates me from someone living on the street or in a mansion. I believe life isn’t the journey; consciousness is. And the more aware you are, the more kindness you owe others.</p>
+
+      <p>Today I build evals, benchmarks and RL environments for AI models at <a href="https://www.abundant.ai/">Abundant</a>, mostly in cybersecurity and long-horizon coding. Put simply, I write the exams and build the practice grounds for AI.</p>
+
+      <figure class="art">
+        <img src="art/milky-way-trouvelot-1881.jpg" width="1200" height="800" loading="lazy"
+             alt="A 19th-century drawing of the Milky Way rising over a dark sea, with a sailing ship on the horizon">
+        <figcaption><a href="https://commons.wikimedia.org/wiki/File:Trouvelot_-_Part_of_the_Milky_Way.jpg">Part of the Milky Way</a>, drawn by E. L. Trouvelot in 1881</figcaption>
+      </figure>
+
+      <h2 class="label">What I want to be</h2>
+
+      <p>A school founder, someday. I want to build a school in a remote corner of the Himalayas, open to everyone, that teaches kids just two things: how to learn and how to question. I’m bad at teaching right now, and I want to get better at it soon.</p>
+
+      <p>And a mountaineer. I hope to climb Everest one day.</p>
+
+      <blockquote>
+        <p>“One might say the computer is being used to program the child. In my vision, the child programs the computer.”</p>
+        <footer>Seymour Papert, <cite>Mindstorms</cite> (1980)</footer>
+      </blockquote>
+
+      <aside class="invite" id="invite" aria-labelledby="invite-title">
+        <h3 id="invite-title">An invitation</h3>
+        <p>If life has taught you something you’d love to pass on, and you care about education, leave your name, your email and a little about yourself. I’ll need it someday to invite you to my school ;)</p>
+        <p id="thanks" class="notice" role="status">Thank you, you’re on the list. I’ll write to you when the school is real.</p>
+        <p id="oops" class="notice" role="alert">That didn’t go through. Please check your name and email and try again.</p>
+        <form action="https://school-invites.kartikey-bh.workers.dev/join" method="post">
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" autocomplete="name" required maxlength="100">
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required maxlength="254">
+          </div>
+          <div class="field field-wide">
+            <label for="f-about">Something about yourself</label>
+            <textarea id="f-about" name="about" rows="3" required maxlength="600" placeholder="What do you do, and what has life taught you?"></textarea>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="f-website">Leave this empty</label>
+            <input id="f-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <button type="submit">Count me in</button>
+        </form>
+        <p class="fine">This stays between us. No promos, no weird ads, and I won’t bug you.</p>
+      </aside>
+
+      <h2 class="label">What I love</h2>
+
+      <p>High-altitude treks, especially <a href="https://cvsqtgaxsa.cloudimg.io/https://images.prismic.io/indiahike/93990af7-dfdb-4b12-9cd4-830b20f768e9_Ali+bedni+Bugyal_Dhaval+Jajal_Ali+bugyal+Top_April_meadows_trekker_+%282%29.JPG?w=3840&amp;h=2160&amp;q=50&amp;org_if_sml=1">Ali Bedni Bugyal</a>, often called the largest meadow in Asia. Small towns near the Himalayas. Good food (Havemore in Saket, once in a while), good company, and long conversations over tea.</p>
+
+      <div class="gallery">
+        <figure>
+          <a href="photos/dawn.jpg"><img src="photos/thumbs/dawn.jpg" width="640" height="480" loading="lazy" alt="A person standing alone on a ridge at twilight, above a sea of clouds"></a>
+          <figcaption>Above the clouds</figcaption>
+        </figure>
+        <figure>
+          <a href="photos/trek.jpg"><img src="photos/thumbs/trek.jpg" width="600" height="800" loading="lazy" alt="Trekkers walking along a snow-covered ridge between pine trees under heavy clouds"></a>
+          <figcaption>On a snow ridge</figcaption>
+        </figure>
+        <figure>
+          <a href="photos/tea.jpg"><img src="photos/thumbs/tea.jpg" width="600" height="800" loading="lazy" alt="Kartikey smiling at a table in a tea room, with a white teapot and cups in front of him"></a>
+          <figcaption>Me, over tea</figcaption>
+        </figure>
+        <figure>
+          <a href="photos/himalayas.jpg"><img src="photos/thumbs/himalayas.jpg" width="640" height="480" loading="lazy" alt="Snow peaks glowing orange and pink at sunrise above dark forested hills"></a>
+          <figcaption>Alpenglow</figcaption>
+        </figure>
+        <figure>
+          <a href="photos/town.jpg"><img src="photos/thumbs/town.jpg" width="600" height="800" loading="lazy" alt="A shaded porch of a mountain cafe opening onto a green garden, with a dog asleep on the floor"></a>
+          <figcaption>A porch in the hills</figcaption>
+        </figure>
+        <figure>
+          <a href="photos/stars.jpg"><img src="photos/thumbs/stars.jpg" width="640" height="427" loading="lazy" alt="The Milky Way above a rocky mountainside lit orange at night"></a>
+          <figcaption>Under the stars</figcaption>
+        </figure>
+        <figure>
+          <a href="photos/someday.jpg"><img src="photos/thumbs/someday.jpg" width="640" height="427" loading="lazy" alt="An illustration in Studio Ghibli style of Kartikey hiking with a backpack beside a mountain lake in the snow"></a>
+          <figcaption>Me, Ghibli style</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <details class="work">
+      <summary><h2 class="label">Work and education</h2><span class="hint">JEE, DTU, Mercor, Handshake AI, Abundant</span></summary>
+
+      <p>Looking back, each move took me closer to one question: how do machines actually learn?</p>
+
+      <dl class="timeline">
+        <dt>School</dt>
+        <dd>In my last year of school, I took <a href="https://en.wikipedia.org/wiki/JEE_Main">JEE Main</a>, the engineering entrance exam about a million students in India take each year, and scored in the 99.6th percentile.</dd>
+
+        <dt>College</dt>
+        <dd>I studied computer science at <a href="https://en.wikipedia.org/wiki/Delhi_Technological_University">Delhi Technological University</a> and became an Expert on Codeforces, the competitive programming site.</dd>
+
+        <dt>Data science</dt>
+        <dd>After college, I worked as a data scientist, partnering with one of the biggest quant firms on their algorithms. Along the way, I built and fine-tuned a classification model that did better than the frontier models of the time on its task.</dd>
+
+        <dt>Mercor</dt>
+        <dd>AI tools were getting better fast, and much of that came from human data: people teaching and testing the models. I wanted to see that up close, so I joined <a href="https://www.mercor.com/">Mercor</a> as a Technical Project Manager.</dd>
+
+        <dt>Handshake AI</dt>
+        <dd>Next I wanted to work on code data, the data that teaches models to code, so I moved to <a href="https://joinhandshake.com/ai/">Handshake AI</a>. I joined as a Strategic Projects Lead, one of the first people on the India team, and helped grow it from 5 to over 100 while building out the code pod.</dd>
+
+        <dt>Abundant</dt>
+        <dd>Then I wanted to go deeper, into synthetic data pipelines and benchmarks. At Abundant I build evals, benchmarks and RL environments, mostly in cybersecurity and long-horizon coding.</dd>
+      </dl>
+
+      <blockquote>
+        <p>“We can only see a short distance ahead, but we can see plenty there that needs to be done.”</p>
+        <footer>Alan Turing, <a href="https://en.wikipedia.org/wiki/Computing_Machinery_and_Intelligence"><cite>Computing Machinery and Intelligence</cite></a> (1950)</footer>
+      </blockquote>
+    </details>
+
+    <section class="closing" aria-label="Closing">
+      <figure class="art">
+        <img src="art/kangchenjunga-sella-1899.jpg" width="1200" height="882" loading="lazy"
+             alt="An old black and white photograph of two porters crossing a snowfield toward the great peaks of Kangchenjunga">
+        <figcaption><a href="https://commons.wikimedia.org/wiki/File:Vittorio_Sella_Kanchinjinga_(Kangchenjunga)_1899.jpg">Kangchenjunga</a>, photographed by Vittorio Sella in 1899</figcaption>
+      </figure>
+      <blockquote>
+        <p>The woods are lovely, dark and deep,<br>
+        But I have promises to keep,<br>
+        And miles to go before I sleep,<br>
+        And miles to go before I sleep.</p>
+        <footer>Robert Frost, <cite>Stopping by Woods on a Snowy Evening</cite> (1923)</footer>
+      </blockquote>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Write to me at kartikey.bhrd [at] gmail [dot] com, or find me on <a href="https://www.linkedin.com/in/kartikey-bhardwaj-6a9bb8218/">LinkedIn</a>.</p>
+    <p>Kartikey Bhardwaj · Last updated October 2026</p>
+  </footer>
+
+</div>
+</body>
+</html>
